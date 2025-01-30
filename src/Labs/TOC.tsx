@@ -16,6 +16,9 @@ export default function TOC() {
         <li>
           <Link to="/Kambaz">Kambaz</Link>
         </li>
+        <li>
+          <a href="https://github.com/jannunzi">GitHub</a>
+        </li>
       </ul>
     </div>
   );
