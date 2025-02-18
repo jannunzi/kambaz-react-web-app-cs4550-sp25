@@ -6,7 +6,7 @@
 
 .wd-secondary-nav-list.list-group .list-group-item.active {
   border-left: 3px solid black !important;
-  color: black;
+  color: black !important;
   background-color: white;
 }
 
