@@ -1,7 +1,21 @@
 import { Button, Dropdown } from "react-bootstrap";
 import { FaCheckCircle } from "react-icons/fa";
+import ModuleEditor from "./ModuleEditor";
+import { useState } from "react";
 
-export default function ModulesControls() {
+export default function ModulesControls({
+  moduleName,
+  setModuleName,
+  addModule,
+}: {
+  moduleName: string;
+  setModuleName: (name: string) => void;
+  addModule: () => void;
+}) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div>
       <Button variant="secondary me-1">Expand All</Button>
@@ -21,7 +35,17 @@ export default function ModulesControls() {
           <Dropdown.Item href="#/action-3">Publish modules only</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Button variant="danger me-1">+ Module</Button>
+      <Button onClick={handleShow} variant="danger me-1">
+        + Module
+      </Button>
+      <ModuleEditor
+        dialogTitle="Add New Module"
+        show={show}
+        handleClose={handleClose}
+        moduleName={moduleName}
+        setModuleName={setModuleName}
+        addModule={addModule}
+      />
     </div>
   );
 }

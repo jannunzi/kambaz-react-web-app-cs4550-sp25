@@ -5,13 +5,13 @@ import CoursesNavigation from "./Navigation";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import { GiHamburgerMenu } from "react-icons/gi";
-import db from "../Database";
+// import db from "../Database";
 import PeopleTable from "./People/Table";
 
-export default function Courses() {
+export default function Courses({ courses }: { courses: any[] }) {
   const { cid } = useParams();
   const { pathname } = useLocation();
-  const course = db.courses.find((course) => course._id === cid);
+  const course = courses.find((course) => course._id === cid);
   return (
     <div>
       <h2 className="text-danger">
